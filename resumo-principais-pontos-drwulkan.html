@@ -1,0 +1,64 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>drwulkan.com.br — Resumo dos principais pontos</title>
+<style>
+body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:860px;margin:40px auto;padding:0 20px;color:#1f2937;line-height:1.5}
+h1{font-size:26px;margin:0 0 4px}.sub{color:#6b7280;margin:0 0 24px}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
+.card{border:1px solid #e5e7eb;border-radius:10px;padding:12px 16px;margin:10px 0}
+.card b{display:block;margin-bottom:2px}.ev{font-size:13px;color:#4b5563}
+code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:12.5px;word-break:break-all}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;margin-right:6px;vertical-align:1px}
+.ok{background:#dcfce7;color:#166534}.fix{background:#fee2e2;color:#991b1b}.dep{background:#e0e7ff;color:#3730a3}.new{background:#fef3c7;color:#92400e}
+ol{padding-left:20px}li{margin:4px 0}
+@media print{.card{break-inside:avoid}}
+</style></head><body>
+<h1>drwulkan.com.br — Resumo dos principais pontos</h1>
+<p class="sub">Base: auditoria do site em 30/10/2026 (horário de Brasília), somente leitura, 311 URLs analisadas.</p>
+
+<h2>1. O que já está funcionando</h2>
+<div class="card"><span class="tag ok">OK</span><b>Buscadores e robôs de IA têm acesso liberado</b>
+<div class="ev">O robots.txt libera tudo (<code>User-agent: * / Disallow:</code>). Googlebot, Bingbot, OAI-SearchBot (ChatGPT), GPTBot, PerplexityBot, ClaudeBot, Google-Extended e Applebot receberam HTTP 200, sem bloqueio por servidor, CDN ou WAF. Isso responde ao ponto principal do estudo sobre o ChatGPT.</div></div>
+<div class="card"><span class="tag ok">OK</span><b>Sitemap ativo e saudável na parte técnica</b>
+<div class="ev"><code>/sitemap.xml</code> redireciona para <code>/sitemap_index.xml</code> (Yoast). Todas as URLs respondem 200, nenhuma tem noindex e o lastmod está atualizado até out/2026.</div></div>
+<div class="card"><span class="tag ok">OK</span><b>Segurança e domínio</b>
+<div class="ev">O HTTPS é válido (certificado até 10/01/2027) e o www redireciona com 301 para o domínio sem www. Os canonicals estão corretos em todas as páginas, menos na home.</div></div>
+<div class="card"><span class="tag ok">OK</span><b>Base de conteúdo e schema já existente</b>
+<div class="ev">Todos os temas prioritários de rinoplastia já têm página. O schema do Yoast (Article, Person e FAQ em 20 páginas) já está ativo, e GA4, Google Tag Manager e Meta Pixel estão instalados no site.</div></div>
+<div class="card"><span class="tag ok">OK</span><b>A produção científica é real e verificável</b>
+<div class="ev">10 publicações foram confirmadas com DOI ou PMID, entre elas o Multi-Lock System for Rhinoplasty (Aesthetic Plast Surg 2015, PMID 26487653) e o artigo de área transversal das narinas (Acta Cir Bras 2012, PMID 23033133). Falta só dar visibilidade a elas no site.</div></div>
+
+<div class="card"><span class="tag ok">OK</span><b>Páginas geográficas em volume pequeno</b>
+<div class="ev">São só 9 páginas regionais (Ribeirão Preto, Pompeia, Santos, Campinas, Franca, Marília, Piracicaba, Itaim e Zona Norte) num site de 311 URLs. É uma quantidade pequena, longe do padrão em massa que as diretrizes do Google sobre doorway pages descrevem. Ajuste opcional: dar a cada uma um H1 e um parágrafo próprio.</div></div>
+
+<h2>2. Correções prioritárias (impacto real)</h2>
+<div class="card"><span class="tag fix">Corrigir</span><b>Menu "Rinoplastia" leva a erro 404</b>
+<div class="ev">O menu aponta para <code>/?p=490</code>, que dá 404, e esse link está em 304 páginas. A página certa é <code>/rinoplastia/</code>. A correção é rápida, só trocar o link no menu.</div></div>
+<div class="card"><span class="tag fix">Corrigir</span><b>Canonical da home em loop</b>
+<div class="ev">O canonical da home aponta para <code>/home/</code>, e <code>/home/</code> faz 301 de volta para <code>/</code>. Isso se ajusta na configuração do Yoast.</div></div>
+<div class="card"><span class="tag fix">Corrigir</span><b>Dois números de RQE no site</b>
+<div class="ev">O rodapé de 304 páginas mostra 28948, e 14 páginas mostram 28.945 (home, biografia, /lp/ e o schema). Vamos padronizar depois que o cliente confirmar o número oficial.</div></div>
+<div class="card"><span class="tag fix">Corrigir</span><b>Status na Rhinoplasty Society diverge</b>
+<div class="ev">A biografia diz "Foi também active member", enquanto a home, a /lp/ e as páginas geográficas dizem "É também active member". O estudo do cliente está correto nesse ponto.</div></div>
+<div class="card"><span class="tag fix">Corrigir</span><b>Link de privacidade para domínio da hospedagem</b>
+<div class="ev">A barra de cookies, presente em 306 páginas, aponta para <code>s40295.p863.sites.pressdns.com/?page_id=56</code>. Vamos trocar para <code>/politica-de-etica-e-privacidade/</code>.</div></div>
+
+<div class="card"><span class="tag fix">Corrigir</span><b>Velocidade no celular</b>
+<div class="ev">No teste de laboratório, a nota mobile ficou entre 39 e 78 e o LCP entre 3,7 e 12,9 s, contra a meta de 2,5 s. As causas são 3 containers do GTM, 96% das imagens em JPG/PNG e falta de cache nas imagens.</div></div>
+
+<h2>3. A criar (próximas etapas do plano)</h2>
+<div class="card"><span class="tag new">A criar</span><b>Página de publicações científicas</b>
+<div class="ev">A página <code>/dr-marcelo-wulkan-publicacoes-cientificas/</code> vai trazer as referências com DOI e PubMed e o destaque para o Multi-Lock.</div></div>
+<div class="card"><span class="tag new">A criar</span><b>Schema médico</b>
+<div class="ev">Faltam os schemas Physician (no site todo, hoje só na /lp/ e com o RQE errado), MedicalClinic e MedicalWebPage. O Google avisa que dados estruturados não garantem rich results.</div></div>
+<div class="card"><span class="tag new">A criar</span><b>Limpeza do sitemap e GA4 na /lp/</b>
+<div class="ev">Vamos tirar do sitemap as 128 tags, <code>/mensagem-enviada/</code> e <code>/lpv2/</code>. Na /lp/ falta instalar o GA4 e trocar o GTM de exemplo, <code>GTM-XXXXXXX</code>, pelo real.</div></div>
+
+<h2>4. O que depende do cliente</h2>
+<ol>
+<li>Acessos ao Google Search Console, Bing Webmaster Tools, GA4/GTM, WordPress e HostGator.</li>
+<li>Confirmação oficial do CRM e do RQE (print da consulta no CFM/CREMESP).</li>
+<li>Status atual na Rhinoplasty Society, com documento ou e-mail da sociedade.</li>
+<li>Decisão sobre o GPTBot (treinamento). A busca do ChatGPT (OAI-SearchBot) já está liberada.</li>
+<li>Aprovação dos conteúdos médicos antes de publicar.</li>
+</ol>
+</body></html>
